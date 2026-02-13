@@ -1,0 +1,12 @@
+{
+  "name": "qa-automation-demo",
+  "version": "1.0.0",
+  "description": "Automation demo for QA checks using GitHub Actions",
+  "main": "src/app.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}
