@@ -1,0 +1,32 @@
+name: QA Automation Demo
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate required files
+        run: bash scripts/validate-files.sh
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run app (smoke test)
+        run: node src/app.js
